@@ -108,13 +108,13 @@ extension RichEditorView {
         }
 
         let alert = AlertViewController(
-            title: "Import PDF",
-            message: "This PDF has \(pageCount) page(s). You can select whether to import it as text or convert it to images."
+            title: NSLocalizedString("Import PDF", bundle: .module, comment: ""),
+            message: String(format: NSLocalizedString("This PDF has %lld page(s). You can select whether to import it as text or convert it to images.", bundle: .module, comment: ""), pageCount)
         ) { [weak self] context in
-            context.addAction(title: "Cancel") {
+            context.addAction(title: NSLocalizedString("Cancel", bundle: .module, comment: "")) {
                 context.dispose()
             }
-            context.addAction(title: "Import Text", attribute: .accent) {
+            context.addAction(title: NSLocalizedString("Import Text", bundle: .module, comment: ""), attribute: .accent) {
                 context.dispose {
                     guard let self else { return }
                     let attachment = Object.Attachment(
@@ -132,7 +132,7 @@ extension RichEditorView {
                     self.attachmentsBar.insert(item: attachment)
                 }
             }
-            context.addAction(title: "Convert to Image", attribute: .accent) {
+            context.addAction(title: NSLocalizedString("Convert to Image", bundle: .module, comment: ""), attribute: .accent) {
                 context.dispose {
                     self?.convertPDFToImages(pdfDocument: pdfDocument, fileName: file.lastPathComponent)
                 }
@@ -145,7 +145,7 @@ extension RichEditorView {
         let pageCount = pdfDocument.pageCount
 
         let indicator = AlertProgressIndicatorViewController(
-            title: "Converting PDF"
+            title: NSLocalizedString("Converting PDF", bundle: .module, comment: "")
         )
         parentViewController?.present(indicator, animated: true) {
             DispatchQueue.global(qos: .userInitiated).async { [weak self] in
@@ -180,10 +180,10 @@ extension RichEditorView {
                     indicator.dismiss(animated: true) {
                         guard !convertedImages.isEmpty else {
                             let alert = AlertViewController(
-                                title: "Error",
-                                message: "Failed to convert PDF pages to images."
+                                title: NSLocalizedString("Error", bundle: .module, comment: ""),
+                                message: NSLocalizedString("Failed to convert PDF pages to images.", bundle: .module, comment: "")
                             ) { context in
-                                context.addAction(title: "OK", attribute: .accent) {
+                                context.addAction(title: NSLocalizedString("OK", bundle: .module, comment: ""), attribute: .accent) {
                                     context.dispose()
                                 }
                             }
@@ -196,10 +196,10 @@ extension RichEditorView {
                         }
 
                         let successAlert = AlertViewController(
-                            title: "Success",
-                            message: "Successfully imported \(convertedImages.count) page(s) from PDF."
+                            title: NSLocalizedString("Success", bundle: .module, comment: ""),
+                            message: String(format: NSLocalizedString("Successfully imported %lld page(s) from PDF.", bundle: .module, comment: ""), convertedImages.count)
                         ) { context in
-                            context.addAction(title: "OK", attribute: .accent) {
+                            context.addAction(title: NSLocalizedString("OK", bundle: .module, comment: ""), attribute: .accent) {
                                 context.dispose()
                             }
                         }
@@ -305,10 +305,10 @@ extension RichEditorView: QuickSettingBar.Delegate {
             { /* pass */ } else {
                 quickSettingBar.toolsToggle.isOn = false
                 let alert = AlertViewController(
-                    title: "Error",
-                    message: "This model does not support tool call or no model is selected."
+                    title: NSLocalizedString("Error", bundle: .module, comment: ""),
+                    message: NSLocalizedString("This model does not support tool call or no model is selected.", bundle: .module, comment: "")
                 ) { context in
-                    context.addAction(title: "OK", attribute: .accent) {
+                    context.addAction(title: NSLocalizedString("OK", bundle: .module, comment: ""), attribute: .accent) {
                         context.dispose()
                     }
                 }
@@ -325,12 +325,12 @@ extension RichEditorView: ControlPanel.Delegate {
 
     func onControlPanelRequestWebScrubber() {
         let alert = AlertInputViewController(
-            title: "Capture Web Content",
-            message: "Please paste or enter the URL here, the web content will be fetched later.",
-            placeholder: "https://",
+            title: NSLocalizedString("Capture Web Content", bundle: .module, comment: ""),
+            message: NSLocalizedString("Please paste or enter the URL here, the web content will be fetched later.", bundle: .module, comment: ""),
+            placeholder: NSLocalizedString("https://", bundle: .module, comment: ""),
             text: "",
-            cancelButtonText: "Cancel",
-            doneButtonText: "Capture"
+            cancelButtonText: NSLocalizedString("Cancel", bundle: .module, comment: ""),
+            doneButtonText: NSLocalizedString("Capture", bundle: .module, comment: "")
         ) { [weak self] text in
             guard let url = URL(string: text.trimmingCharacters(in: .whitespacesAndNewlines)),
                   let scheme = url.scheme,
@@ -338,10 +338,10 @@ extension RichEditorView: ControlPanel.Delegate {
                   url.host != nil
             else {
                 let alert = AlertViewController(
-                    title: "Error",
-                    message: "Please enter a valid URL."
+                    title: NSLocalizedString("Error", bundle: .module, comment: ""),
+                    message: NSLocalizedString("Please enter a valid URL.", bundle: .module, comment: "")
                 ) { context in
-                    context.addAction(title: "OK", attribute: .accent) {
+                    context.addAction(title: NSLocalizedString("OK", bundle: .module, comment: ""), attribute: .accent) {
                         context.dispose()
                     }
                 }
@@ -349,17 +349,17 @@ extension RichEditorView: ControlPanel.Delegate {
                 return
             }
             let indicator = AlertProgressIndicatorViewController(
-                title: "Fetching Content"
+                title: NSLocalizedString("Fetching Content", bundle: .module, comment: "")
             )
             self?.parentViewController?.present(indicator, animated: true)
             Scrubber.document(for: url) { [weak self] doc in
                 indicator.dismiss(animated: true) {
                     guard let doc else {
                         let alert = AlertViewController(
-                            title: "Error",
-                            message: "Failed to fetch the web content."
+                            title: NSLocalizedString("Error", bundle: .module, comment: ""),
+                            message: NSLocalizedString("Failed to fetch the web content.", bundle: .module, comment: "")
                         ) { context in
-                            context.addAction(title: "OK", attribute: .accent) {
+                            context.addAction(title: NSLocalizedString("OK", bundle: .module, comment: ""), attribute: .accent) {
                                 context.dispose()
                             }
                         }
