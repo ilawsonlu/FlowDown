@@ -66,7 +66,7 @@ class ConversationListView: UIView {
             ConversationManager.shared.conversations,
             ChatSelection.shared.selection
         )
-        .debounce(for: .milliseconds(100), scheduler: DispatchQueue.main)
+        .debounce(for: .milliseconds(16), scheduler: DispatchQueue.main)
         .ensureMainThread()
         .sink { [weak self] _, identifier in
             guard let self else { return }
