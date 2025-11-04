@@ -136,6 +136,9 @@ extension ModelManager {
         for (key, value) in model.headers {
             request.setValue(value, forHTTPHeaderField: key)
         }
+        let block: ([String]) -> Void = { input in
+            DispatchQueue.main.async { block(input) }
+        }
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil else {
                 Logger.network.errorFile("[fetchModelList] request error: \(error!.localizedDescription)")

@@ -682,9 +682,7 @@ class CloudModelEditorController: StackScrollController {
                     }
                     view.configure(value: selection)
                 }
-                DispatchQueue.main.async {
-                    completion(menuElements)
-                }
+                completion(menuElements)
             }
         }
 
