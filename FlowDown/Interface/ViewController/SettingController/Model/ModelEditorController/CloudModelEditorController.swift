@@ -186,7 +186,7 @@ class CloudModelEditorController: StackScrollController {
 
         stackView.addArrangedSubviewWithMargin(
             ConfigurableSectionHeaderView()
-                .with(header: "Networking")
+                .with(header: "Networking (Optional)")
         ) { $0.bottom /= 2 }
         stackView.addArrangedSubview(SeparatorView())
 
@@ -210,7 +210,7 @@ class CloudModelEditorController: StackScrollController {
             view.parentViewController?.navigationController?.pushViewController(textEditor, animated: true)
         }
         headerEditorView.configure(icon: .init(systemName: "pencil"))
-        headerEditorView.configure(title: "Additional Header (Optional)")
+        headerEditorView.configure(title: "Additional Header")
         headerEditorView.configure(description: "This value will be added to the request as additional header.")
         headerEditorView.configure(value: model?.headers.isEmpty ?? true ? String(localized: "N/A") : String(localized: "Configured"))
 
@@ -255,8 +255,8 @@ class CloudModelEditorController: StackScrollController {
             view.parentViewController?.navigationController?.pushViewController(textEditor, animated: true)
         }
         bodyFieldsEditorView.configure(icon: .init(systemName: "pencil"))
-        bodyFieldsEditorView.configure(title: "Additional Body Fields (Optional)")
-        bodyFieldsEditorView.configure(description: "This value will be added to the request body as additional fields.")
+        bodyFieldsEditorView.configure(title: "Additional Body Fields")
+        bodyFieldsEditorView.configure(description: "Configure inference-specific body fields here. The JSON key-value pairs you enter are merged into every request.")
         let hasBodyFields = !(model?.bodyFields.isEmpty ?? true) && !Self.isEmptyJsonObject(model?.bodyFields ?? "")
         bodyFieldsEditorView.configure(value: hasBodyFields ? String(localized: "Configured") : String(localized: "N/A"))
 

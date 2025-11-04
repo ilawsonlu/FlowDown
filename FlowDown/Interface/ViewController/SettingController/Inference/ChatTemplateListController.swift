@@ -262,7 +262,7 @@ extension ChatTemplateListController: UIDocumentPickerDelegate {
                 if !failure.isEmpty {
                     let alert = AlertViewController(
                         title: "Import Failed",
-                        message: "\(success) templates imported successfully, \(failure.count) failed."
+                        message: String(localized: "\(success) templates imported successfully, \(failure.count) failed.")
                     ) { context in
                         context.addAction(title: "OK", attribute: .accent) {
                             context.dispose()

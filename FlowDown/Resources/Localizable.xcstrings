@@ -74,7 +74,7 @@
         }
       }
     },
-    "%d servers imported successfully, %d failed." : {
+    "%1$d servers imported successfully, %2$d failed." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -90,7 +90,7 @@
         }
       }
     },
-    "%d templates imported successfully, %d failed." : {
+    "%1$d templates imported successfully, %2$d failed." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -106,10 +106,7 @@
         }
       }
     },
-    "%lld" : {
-      "shouldTranslate" : false
-    },
-    "%lld servers imported successfully, %lld failed." : {
+    "%1$lld servers imported successfully, %2$lld failed." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -125,7 +122,7 @@
         }
       }
     },
-    "%lld templates imported successfully, %lld failed." : {
+    "%1$lld templates imported successfully, %2$lld failed." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -137,6 +134,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$lld 个模版已成功导入，%2$lld 失败。"
+          }
+        }
+      }
+    },
+    "%lld" : {
+      "shouldTranslate" : false
+    },
+    "%lld servers imported successfully, %lld failed." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld servers imported successfully, %2$lld failed."
+          }
+        }
+      }
+    },
+    "%lld templates imported successfully, %lld failed." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld templates imported successfully, %2$lld failed."
           }
         }
       }
@@ -350,7 +370,7 @@
         }
       }
     },
-    "Additional Body Fields (Optional)" : {
+    "Additional Body Fields" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -366,7 +386,7 @@
         }
       }
     },
-    "Additional Header (Optional)" : {
+    "Additional Header" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2080,6 +2100,22 @@
         }
       }
     },
+    "Configure inference-specific body fields here. The JSON key-value pairs you enter are merged into every request." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configure inference-specific body fields here. The JSON key-value pairs you enter are merged into every request."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在这里配置推理所需的额外请求体字段，填写的 JSON 键值会随每次请求发送。"
+          }
+        }
+      }
+    },
     "Configure tool settings, choose search engine for internet searches." : {
       "localizations" : {
         "en" : {
@@ -3490,7 +3526,7 @@
         }
       }
     },
-    "Disabled built-in tools: %lld. Skipped: %lld. MCP servers disabled: %lld of %lld." : {
+    "Disabled built-in tools: %1$lld. Skipped: %2$lld. MCP servers disabled: %3$lld of %4$lld." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3502,6 +3538,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "已禁用内置工具：%1$lld 个。跳过：%2$lld 个。已禁用 MCP 服务器：%3$lld / %4$lld。"
+          }
+        }
+      }
+    },
+    "Disabled built-in tools: %lld. Skipped: %lld. MCP servers disabled: %lld of %lld." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Disabled built-in tools: %1$lld. Skipped: %2$lld. MCP servers disabled: %3$lld of %4$lld."
           }
         }
       }
@@ -4374,7 +4420,7 @@
         }
       }
     },
-    "Enabled built-in tools: %lld. Skipped: %lld. MCP servers enabled: %lld of %lld." : {
+    "Enabled built-in tools: %1$lld. Skipped: %2$lld. MCP servers enabled: %3$lld of %4$lld." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4386,6 +4432,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "已启用内置工具：%1$lld 个。跳过：%2$lld 个。已启用 MCP 服务器：%3$lld / %4$lld。"
+          }
+        }
+      }
+    },
+    "Enabled built-in tools: %lld. Skipped: %lld. MCP servers enabled: %lld of %lld." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Enabled built-in tools: %1$lld. Skipped: %2$lld. MCP servers enabled: %3$lld of %4$lld."
           }
         }
       }
@@ -8206,7 +8262,7 @@
         }
       }
     },
-    "Networking" : {
+    "Networking (Optional)" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -12463,22 +12519,6 @@
         }
       }
     },
-    "This value will be added to the request body as additional fields." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Configure inference-specific body fields here. The JSON key-value pairs you enter are merged into every request."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在这里配置推理所需的额外请求体字段，填写的 JSON 键值会随每次请求发送。"
-          }
-        }
-      }
-    },
     "This value will be added to the request to distinguish the workgroup on the remote." : {
       "localizations" : {
         "en" : {
@@ -14258,7 +14298,8 @@
         }
       }
     },
-    "We requires LAN access for interact with local service providers. We do not collect any information from your LAN." : {
+    "We require LAN access to interact with local service providers. We do not collect any information from your LAN." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -14273,6 +14314,9 @@
           }
         }
       }
+    },
+    "We requires LAN access for interact with local service providers. We do not collect any information from your LAN." : {
+
     },
     "We strongly recommend that you do not enable this feature unless you are sure what you are doing. It may cause unexpected behavior and even data loss." : {
       "localizations" : {
@@ -14307,6 +14351,10 @@
       }
     },
     "We use your audio data for speech recognition. Your data is processed by system, we do not collect those infomation." : {
+
+    },
+    "We use your audio data for speech recognition. Your data is processed by the system; we do not collect this information." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -14323,6 +14371,10 @@
       }
     },
     "We use your camera to take picture. Your photo may be uploaded by your choice." : {
+
+    },
+    "We use your camera to take pictures. Your photo may be uploaded based on your choice." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

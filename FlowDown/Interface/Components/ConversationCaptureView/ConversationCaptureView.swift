@@ -123,13 +123,8 @@ class ConversationCaptureView: UIView {
 
         controller.view.addSubview(self)
         snp.remakeConstraints { make in
-            #if DEBUG
-                make.top.equalTo(controller.view.snp.top)
-                make.centerX.equalToSuperview()
-            #else
-                make.top.equalTo(controller.view.snp.top)
-                make.left.equalTo(controller.view.snp.right)
-            #endif
+            make.top.equalTo(controller.view.snp.top)
+            make.left.equalTo(controller.view.snp.right)
             make.width.equalTo(layoutWidth).priority(.required)
             make.height.equalTo(5000).priority(.required)
         }

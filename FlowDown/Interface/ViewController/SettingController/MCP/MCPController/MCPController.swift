@@ -203,7 +203,7 @@ extension SettingController.SettingContent.MCPController: UIDocumentPickerDelega
                 if !failure.isEmpty {
                     let alert = AlertViewController(
                         title: "Import Failed",
-                        message: "\(success) servers imported successfully, \(failure.count) failed."
+                        message: String(localized: "\(success) servers imported successfully, \(failure.count) failed.")
                     ) { context in
                         context.addAction(title: "OK", attribute: .accent) {
                             context.dispose()
