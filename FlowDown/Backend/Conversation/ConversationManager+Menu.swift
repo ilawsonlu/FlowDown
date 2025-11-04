@@ -125,7 +125,6 @@ extension ConversationManager {
         let saveImageMenu = UIMenu(
             title: String(localized: "Save Image"),
             image: UIImage(systemName: "text.below.photo"),
-            options: [.displayInline],
             children: ConversationCaptureView.LayoutPreset.allCases.map { preset in
                 UIAction(
                     title: preset.displayName,
@@ -449,7 +448,7 @@ extension ConversationManager {
         let management = UIMenu(
             title: String(localized: "Other"),
             image: UIImage(systemName: "ellipsis.circle"),
-            options: managementGroup.count <= 1 ? .displayInline : [],
+            options: managementGroup.count <= 3 ? .displayInline : [],
             children: managementGroup
         )
 
